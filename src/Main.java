@@ -8,5 +8,7 @@ public class Main {
 
         arr = redactor.create(arr, value);
         redactor.read(arr);
+        System.out.println();
+        redactor.read(arr,0);
     }
 }
