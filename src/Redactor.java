@@ -1,10 +1,10 @@
 public class Redactor {
 
     public String[] create(String[] arr, String value) {
-        for (String s : arr) {
-            if (s == null) {
-                s = value;
-                break;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == null) {
+                arr[i] = value;
+                return arr;
             }
         }
         return arr;
