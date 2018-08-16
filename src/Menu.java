@@ -1,6 +1,9 @@
 import java.util.Scanner;
 
 public class Menu {
+
+    Redactor redactor = new Redactor();
+
     public void mainMenu(){
         System.out.println("MENU: \n" +
                 "please enter command for action \n" +
@@ -9,6 +12,12 @@ public class Menu {
                 "u - update \n" +
                 "d - delete \n" +
                 "exit - for finish program");
+    }
+
+    public String[] createElement(String[] arr){
+        System.out.println("Please enter value for element:");
+        String value = readConsoleValue();
+        return redactor.create(arr, value);
     }
 
     public String readConsoleValue(){
