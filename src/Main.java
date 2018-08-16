@@ -7,17 +7,11 @@ public class Main {
         String[] arr = new String[10];
         Redactor redactor = new Redactor();
 
-        arr = redactor.create(arr, value);
-        redactor.read(arr);
-        redactor.read(arr,0);
+        Menu menu = new Menu();
 
-        redactor.create(arr, value);
-        redactor.read(arr);
+        menu.mainMenu();
+        value = menu.readConsoleValue();
+        System.out.println(value);
 
-        redactor.update(arr, 1, newValue);
-        redactor.read(arr);
-
-        redactor.delete(arr, 0);
-        redactor.read(arr);
     }
 }
