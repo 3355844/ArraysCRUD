@@ -11,14 +11,16 @@ public class Redactor {
     }
 
     public void read(String[] arr) {
+        System.out.println();
         for (String s : arr) {
             System.out.print(s + ", ");
         }
     }
 
     public void read(String[] arr, int index) {
+        System.out.println();
         if (checkIndex(arr, index)) {
-            System.out.println("Value: " + arr[index]);
+            System.out.print("Value: " + arr[index]);
         }
     }
 
