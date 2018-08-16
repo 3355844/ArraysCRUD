@@ -18,6 +18,7 @@ public class Menu {
         System.out.println("Please enter value for element:");
         String value = readConsoleValue();
         arr = redactor.create(arr, value);
+        redactor.read(arr);
         return arr ;
     }
 
