@@ -17,20 +17,28 @@ public class Redactor {
     }
 
     public void read(String[] arr, int index) {
-        if (index > arr.length - 1) {
-            System.out.println("No such index!!!");
-        } else {
+        if (checkIndex(arr, index)) {
             System.out.println("Value: " + arr[index]);
         }
     }
 
-    public String[] update(String[] arr) {
+    private boolean checkIndex(String[] arr, int index) {
+        boolean checker = index < arr.length - 1 && index >= 0;
+        if (!checker) System.out.println("Incorrect index: " + index);
+        return checker;
+    }
 
+    public String[] update(String[] arr, int index, String value) {
+        if (checkIndex(arr, index)){
+            arr[index] = value;
+        }
         return arr;
     }
 
-    public String[] delete(String[] arr) {
-
+    public String[] delete(String[] arr, int index) {
+        if (checkIndex(arr, index)){
+            arr[index]= null;
+        }
         return arr;
     }
 }
