@@ -17,7 +17,8 @@ public class Menu {
     public String[] createElement(String[] arr){
         System.out.println("Please enter value for element:");
         String value = readConsoleValue();
-        return redactor.create(arr, value);
+        arr = redactor.create(arr, value);
+        return arr ;
     }
 
     public String readConsoleValue(){
