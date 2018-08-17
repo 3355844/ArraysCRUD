@@ -35,6 +35,16 @@ public class Menu {
         return arr;
     }
 
+    public String[] deleteElement(String[] arr) {
+        int index;
+
+        System.out.println("Please enter index for delete element (only numbers): ");
+        index = Integer.parseInt(readConsoleValue());
+        arr = redactor.delete(arr,index);
+        redactor.read(arr);
+        return arr;
+    }
+
     public String readConsoleValue() {
         String value;
         Scanner scanner = new Scanner(System.in);
