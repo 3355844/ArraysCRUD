@@ -11,10 +11,10 @@ public class Redactor {
     }
 
     public void read(String[] arr) {
-        System.out.println();
         for (String s : arr) {
             System.out.print(s + ", ");
         }
+        System.out.println();
     }
 
     public void read(String[] arr, int index) {
