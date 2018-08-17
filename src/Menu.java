@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Menu {
 
     Redactor redactor = new Redactor();
+    boolean theEndProgram = !false;
 
     public void mainMenu() {
         System.out.println("MENU: \n" +
@@ -14,27 +15,25 @@ public class Menu {
                 "exit - for finish program");
     }
 
-    public boolean route(String[] arr) {
+    public String[] route(String[] arr) {
 
-        boolean theEndProgram = false;
         String command = readConsoleValue();
 
         if (command.equalsIgnoreCase("c")) {
-            createElement(arr);
+            arr = createElement(arr);
         } else if (command.equalsIgnoreCase("r")) {
             readElement(arr);
         } else if (command.equalsIgnoreCase("u")) {
-            updateElement(arr);
+            arr = updateElement(arr);
         } else if (command.equalsIgnoreCase("d")) {
-            deleteElement(arr);
+            arr = deleteElement(arr);
         } else if (command.equalsIgnoreCase("exit")) {
             System.out.println("You exit from program: ");
-            theEndProgram = true;
+            theEndProgram = !true;
         } else {
             System.out.println("Incorrect command try again : ");
         }
-
-        return !theEndProgram;
+        return arr;
     }
 
 
