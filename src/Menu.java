@@ -14,6 +14,30 @@ public class Menu {
                 "exit - for finish program");
     }
 
+    public boolean route(String[] arr) {
+
+        boolean theEndProgram = false;
+        String command = readConsoleValue();
+
+        if (command.equalsIgnoreCase("c")) {
+            createElement(arr);
+        } else if (command.equalsIgnoreCase("r")) {
+            readElement(arr);
+        } else if (command.equalsIgnoreCase("u")) {
+            updateElement(arr);
+        } else if (command.equalsIgnoreCase("d")) {
+            deleteElement(arr);
+        } else if (command.equalsIgnoreCase("exit")) {
+            System.out.println("You exit from program: ");
+            theEndProgram = true;
+        } else {
+            System.out.println("Incorrect command try again : ");
+        }
+
+        return !theEndProgram;
+    }
+
+
     public String[] createElement(String[] arr) {
         System.out.println("Please enter value for create element:");
         String value = readConsoleValue();
@@ -42,7 +66,7 @@ public class Menu {
         return arr;
     }
 
-    public void readElement(String[] arr){
+    public void readElement(String[] arr) {
         redactor.read(arr);
     }
 
