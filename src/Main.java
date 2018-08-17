@@ -7,6 +7,6 @@ public class Main {
 
         menu.mainMenu();
         arr = menu.createElement(arr);
-        System.out.println(arr[0]);
+        arr = menu.updateElement(arr);
     }
 }
