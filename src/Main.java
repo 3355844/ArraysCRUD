@@ -5,7 +5,7 @@ public class Main {
         String[] arr = new String[10];
         Menu menu = new Menu();
 
-        while (menu.theEndProgram){
+        while (!menu.theEndProgram){
             menu.mainMenu();
             arr = menu.route(arr);
         }

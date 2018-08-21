@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Menu {
 
     Redactor redactor = new Redactor();
-    boolean theEndProgram = !false;
+    boolean theEndProgram = false;
 
     public void mainMenu() {
         System.out.println("MENU: \n" +
@@ -29,22 +29,33 @@ public class Menu {
             arr = deleteElement(arr);
         } else if (command.equalsIgnoreCase("exit")) {
             System.out.println("You exit from program: ");
-            theEndProgram = !true;
+
+            theEndProgram = checkExit();
         } else {
             System.out.println("Incorrect command try again : ");
         }
         return arr;
     }
 
+    private boolean checkExit(){
 
-    public String[] createElement(String[] arr) {
+        System.out.println("If you want exit enter 'y', return enter other value: ");
+        if (readConsoleValue().equalsIgnoreCase("y")){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    private String[] createElement(String[] arr) {
         System.out.println("Please enter value for create element:");
         String value = readConsoleValue();
         arr = redactor.create(arr, value);
         return arr;
     }
 
-    public String[] updateElement(String[] arr) {
+    private String[] updateElement(String[] arr) {
         String value;
         int index;
 
@@ -56,7 +67,7 @@ public class Menu {
         return arr;
     }
 
-    public String[] deleteElement(String[] arr) {
+    private String[] deleteElement(String[] arr) {
         int index;
 
         System.out.println("Please enter index for delete element (only numbers): ");
@@ -65,11 +76,11 @@ public class Menu {
         return arr;
     }
 
-    public void readElement(String[] arr) {
+    private void readElement(String[] arr) {
         redactor.read(arr);
     }
 
-    public String readConsoleValue() {
+    protected String readConsoleValue() {
         String value;
         Scanner scanner = new Scanner(System.in);
         value = scanner.nextLine();
