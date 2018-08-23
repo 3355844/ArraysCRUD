@@ -31,7 +31,7 @@ public class HumanRedactor {
     public Human findById(Human[] humans, int id) {
         Human human = null;
         for (int i = 0; i < humans.length; i++) {
-            if (humans[i].getId() == human.getId()) {
+            if (humans[i].getId() == id) {
                 human = humans[i];
                 break;
             }

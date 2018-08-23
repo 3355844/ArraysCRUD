@@ -8,6 +8,8 @@ public class Main {
         humans = router.addHumanRouting(humans);
         router.readHumansRouting(humans);
 
+        humans = router.updateHumanRouting(humans);
+        router.readHumansRouting(humans);
 //        while (!menu.theEndProgram){
 //            menu.mainMenu();
 //            arr = menu.route(arr);
