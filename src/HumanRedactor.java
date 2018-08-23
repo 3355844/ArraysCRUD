@@ -13,7 +13,7 @@ public class HumanRedactor {
     public void readHumans(Human[] humans) {
 
         for (int i = 0; i < humans.length; i++) {
-            System.out.println(humans[i].toString());
+            if (humans[i] != null) System.out.println(humans[i].toString());
         }
     }
 
@@ -39,6 +39,14 @@ public class HumanRedactor {
         return human;
     }
 
-
+    public Human[] deleteHuman(Human[] humans, int id) {
+        for (int i = 0; i < humans.length; i++) {
+            if (humans[i].getId() == id) {
+                humans[i] = null;
+                break;
+            }
+        }
+        return humans;
+    }
 
 }
