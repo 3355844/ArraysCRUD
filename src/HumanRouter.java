@@ -18,7 +18,6 @@ public class HumanRouter {
 
     public Human[] updateHumanRouting(Human[] humans) {
         Human human;
-
         System.out.println("Please enter Data for update Human:");
         System.out.println("Enter ID for update:");
         human = redactor.findById(humans, Integer.parseInt(menu.readConsoleValue()));
