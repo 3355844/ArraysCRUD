@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class HumanRouter {
 
-//    Menu menu = new Menu();
+    //    Menu menu = new Menu();
     HumanRedactor redactor = new HumanRedactor();
 
     public Human[] addHumanRouting(Human[] humans) {
@@ -40,14 +40,42 @@ public class HumanRouter {
         System.out.println("Enter ID for delete:");
         id = Integer.parseInt(readConsoleValue());
         if (redactor.findById(humans, id) != null) {
-             redactor.deleteHuman(humans, id);
+            redactor.deleteHuman(humans, id);
         }
 
         return humans;
     }
 
     public void readHumansRouting(Human[] humans) {
-        redactor.readHumans(humans);
+
+        redactor.readHumans(sortHumansById(humans));
+    }
+
+    public Human[] sortHumansById(Human[] humans) {
+
+        Human[] tmpHumans = new Human[humans.length];
+        int count = 0;
+        Human human;
+
+        for (int i = 0; i < humans.length; i++) {
+            if (humans[i] != null) {
+                tmpHumans[count] = humans[i];
+                count++;
+            }
+        }
+
+        for (int i = 1; i < tmpHumans.length; i++) {
+            if (tmpHumans[i] != null) {
+                human = tmpHumans[i];
+                Human tmpHuman = tmpHumans[i - 1];
+                while (human.getId() < tmpHuman.getId()) {
+                    tmpHumans[i - 1] = human;
+                    tmpHumans[i] = tmpHuman;
+                }
+            }
+        }
+        humans = tmpHumans;
+        return humans;
     }
 
     protected String readConsoleValue() {
