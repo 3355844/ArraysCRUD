@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Menu {
 
     Redactor redactor = new Redactor();
+    HumanRouter humanRouter = new HumanRouter();
     boolean theEndProgram = false;
 
     public void mainMenu() {
@@ -37,10 +38,31 @@ public class Menu {
         return arr;
     }
 
-    private boolean checkExit(){
+    public Human[] routeHuman(Human[] humans) {
+
+        String command = readConsoleValue();
+
+        if (command.equalsIgnoreCase("c")) {
+            humans = humanRouter.addHumanRouting(humans);
+        } else if (command.equalsIgnoreCase("r")) {
+            humanRouter.readHumansRouting(humans);
+        } else if (command.equalsIgnoreCase("u")) {
+            humans = humanRouter.updateHumanRouting(humans);
+        } else if (command.equalsIgnoreCase("d")) {
+            humans = humanRouter.deleteHumanRouting(humans);
+        } else if (command.equalsIgnoreCase("exit")) {
+            System.out.println("You exit from program: ");
+            theEndProgram = checkExit();
+        } else {
+            System.out.println("Incorrect command try again : ");
+        }
+        return humans;
+    }
+
+    private boolean checkExit() {
 
         System.out.println("If you want exit enter 'y', return enter other value: ");
-        if (readConsoleValue().equalsIgnoreCase("y")){
+        if (readConsoleValue().equalsIgnoreCase("y")) {
             return true;
         } else {
             return false;

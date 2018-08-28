@@ -1,6 +1,8 @@
+import java.util.Scanner;
+
 public class HumanRouter {
 
-    Menu menu = new Menu();
+//    Menu menu = new Menu();
     HumanRedactor redactor = new HumanRedactor();
 
     public Human[] addHumanRouting(Human[] humans) {
@@ -8,11 +10,11 @@ public class HumanRouter {
 
         System.out.println("Enter Data for new Human");
         System.out.println("Name:");
-        tmpHuman.setName(menu.readConsoleValue());
+        tmpHuman.setName(readConsoleValue());
         System.out.println("LastName: ");
-        tmpHuman.setLastName(menu.readConsoleValue());
+        tmpHuman.setLastName(readConsoleValue());
         System.out.println("Age: ");
-        tmpHuman.setAge(Integer.parseInt(menu.readConsoleValue()));
+        tmpHuman.setAge(Integer.parseInt(readConsoleValue()));
         return redactor.addHuman(humans, tmpHuman);
     }
 
@@ -20,13 +22,13 @@ public class HumanRouter {
         Human human;
         System.out.println("Please enter Data for update Human:");
         System.out.println("Enter ID for update:");
-        human = redactor.findById(humans, Integer.parseInt(menu.readConsoleValue()));
+        human = redactor.findById(humans, Integer.parseInt(readConsoleValue()));
         System.out.println("Enter new Name:");
-        human.setName(menu.readConsoleValue());
+        human.setName(readConsoleValue());
         System.out.println("Enter new LastName:");
-        human.setLastName(menu.readConsoleValue());
+        human.setLastName(readConsoleValue());
         System.out.println("Enter new Age");
-        human.setAge(Integer.parseInt(menu.readConsoleValue()));
+        human.setAge(Integer.parseInt(readConsoleValue()));
 
         return redactor.updateHuman(humans, human);
     }
@@ -36,7 +38,7 @@ public class HumanRouter {
 
         System.out.println("Please enter data for delete Human:");
         System.out.println("Enter ID for delete:");
-        id = Integer.parseInt(menu.readConsoleValue());
+        id = Integer.parseInt(readConsoleValue());
         if (redactor.findById(humans, id) != null) {
              redactor.deleteHuman(humans, id);
         }
@@ -48,4 +50,10 @@ public class HumanRouter {
         redactor.readHumans(humans);
     }
 
+    protected String readConsoleValue() {
+        String value;
+        Scanner scanner = new Scanner(System.in);
+        value = scanner.nextLine();
+        return value;
+    }
 }

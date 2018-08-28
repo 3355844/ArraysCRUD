@@ -4,15 +4,20 @@ public class Main {
 
         Human[] humans = new Human[10];
         Menu menu = new Menu();
-        HumanRouter router = new HumanRouter();
-        humans = router.addHumanRouting(humans);
-        router.readHumansRouting(humans);
+//        HumanRouter router = new HumanRouter();
+//        humans = router.addHumanRouting(humans);
+//        router.readHumansRouting(humans);
+//
+//        humans = router.updateHumanRouting(humans);
+//        router.readHumansRouting(humans);
+//
+//        humans = router.deleteHumanRouting(humans);
+//        router.readHumansRouting(humans);
 
-        humans = router.updateHumanRouting(humans);
-        router.readHumansRouting(humans);
-
-        humans = router.deleteHumanRouting(humans);
-        router.readHumansRouting(humans);
+        while (!menu.theEndProgram){
+            menu.mainMenu();
+            humans = menu.routeHuman(humans);
+        }
 
 //        while (!menu.theEndProgram){
 //            menu.mainMenu();
