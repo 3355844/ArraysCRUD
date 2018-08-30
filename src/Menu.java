@@ -13,6 +13,7 @@ public class Menu {
                 "r - read \n" +
                 "u - update \n" +
                 "d - delete \n" +
+                "s - sort by id \n" +
                 "exit - for finish program");
     }
 
@@ -50,6 +51,8 @@ public class Menu {
             humans = humanRouter.updateHumanRouting(humans);
         } else if (command.equalsIgnoreCase("d")) {
             humans = humanRouter.deleteHumanRouting(humans);
+        } else if (command.equalsIgnoreCase("s")) {
+            humans = humanRouter.sortHumansById(humans);
         } else if (command.equalsIgnoreCase("exit")) {
             System.out.println("You exit from program: ");
             theEndProgram = checkExit();
